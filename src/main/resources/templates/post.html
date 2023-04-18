@@ -22,13 +22,13 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" th:href="@{/home/}" >The Office Characters</a>
+          <a class="navbar-brand" th:href="@{/home/}">The Office Characters</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" th:href="@{/home/}" >Home</a>
+              <a class="nav-link active" aria-current="page" th:href="@{/home/}">Home</a>
               <a class="nav-link" href="#">Gallery</a>
               <a class="nav-link" href="#">Post</a>
             </div>
@@ -37,29 +37,15 @@
       </nav>
 
       <div class="jumbotron">
-        <h1 class="display-4">The Office</h1>
-        <p class="lead">This web shows all The Office characters and info about it!</p>
+        <h1 th:text="${post.titulo}" class="display-4"></h1>
+        <p th:text="${post.descripcion}" class="lead"></p>
         <hr class="my-4">
-        <p>The Office is an American humor tv show, set in a regional paper sales office, located in the town of Scranton, Pennsylvania (United States).</p>
-        <a class="btn btn-primary btn-lg" href="https://es.wikipedia.org/wiki/The_Office" target="_blank" role="button">Learn more</a>
+        <p th:text="${post.fecha}" ></p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
       </div>
 
       <div class="container">
-        <div class="row">
-
-          <!-- cards -->
-          <div th:each="post : ${posts}" class="col-3 mx-1">
-            <div class="card" style="width: 18rem;">
-              <img th:src="${post.urlImg}" src="../static/img/Michael-Scott.avif" class="card-img-top" alt="Imagen ilustrativa...">
-              <div class="card-body">
-                <h5 th:text="${post.titulo}" class="card-title"></h5>
-                <p th:text="${post.descripcion}" class="card-text"></p>
-                <a th:href="@{/home/post?id=} + ${post.id}" class="btn btn-primary">Learn more...</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      
 
         <div class="row justify-content-center mt-3">
           <nav aria-label="...">
