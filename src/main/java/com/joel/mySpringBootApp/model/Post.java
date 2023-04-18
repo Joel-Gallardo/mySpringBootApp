@@ -5,8 +5,8 @@ import java.sql.Date;
 public class Post {
 	private int id;
 	private String descripcion;
-	private String urlImg;
-	private Date fecha;
+	private String urlImg = "https://i.pinimg.com/originals/1a/15/43/1a154308f860e52f9b706b8c218442ca.jpg";
+	private Date fecha = new Date(0);
 	private String titulo;
 	
 	public int getId() {

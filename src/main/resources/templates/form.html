@@ -22,13 +22,13 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" th:href="@{/home/}">The Office Characters</a>
+          <a class="navbar-brand" th:href="@{/home/}" >The Office Characters</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" th:href="@{/home/}">Home</a>
+              <a class="nav-link active" aria-current="page" th:href="@{/home/}" >Home</a>
               <a class="nav-link" href="#">Gallery</a>
               <a class="nav-link" href="#">Post</a>
             </div>
@@ -36,48 +36,38 @@
         </div>
       </nav>
 
-      <div class="jumbotron">
-        <h1 th:text="${post.titulo}" class="display-4"></h1>
-        <p th:text="${post.descripcion}" class="lead"></p>
-        <hr class="my-4">
-        <p th:text="${post.fecha}" ></p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </div>
-
       <div class="container">
-      
-
-        <div class="row justify-content-center mt-3">
-          <nav aria-label="...">
-            <ul class="pagination">
-
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-              </li>
-
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-
-              <li class="page-item " aria-current="page">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-              </li>
-
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-
-            </ul>
-          </nav>
+        <div class="row">
+            <div class="col-12 mt-5">
+                <h1>Nuevo Post</h1>
+            </div>
+            <div class="col-12">
+                <form th:action="@{/home/addNewPost}" method="post" th:object="${post}">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="id">Id</label>
+                            <input th:field="*{id}" th:value="*{id}" type="number" class="form-control" id="id" placeholder="Identificador">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="id">Descripcion</label>
+                            <input th:field="*{descripcion}" th:value="*{descripcion}" type="text" class="form-control" id="id" placeholder="Descripcion">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="id">Imagen</label>
+                            <input th:field="*{urlImg}" th:value="*{urlImg}" type="text" class="form-control" id="id" placeholder="Imagen">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="id">Titulo</label>
+                            <input th:field="*{titulo}" th:value="*{titulo}" type="text" class="form-control" id="id" placeholder="Titulo">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
       </div>
 
-      <footer class="footer mt-auto py-3 bg-light">
+      <footer class="footer mt-5 py-3 bg-light">
         <div class="container">
           <span class="text-muted">By Joel Gallardo Manjarrez.</span>
         </div>
