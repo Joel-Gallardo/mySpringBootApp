@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,8 +43,10 @@ public class ControllerBasic {
     //     return modelAndView;
     // }
 
-    @GetMapping(path = {"/post"})
-    public ModelAndView getPostIndividual(@RequestParam(defaultValue = "1", name ="id", required = false) int id){
+    @GetMapping(path = {"/post", "/post/p/{post}"})
+    public ModelAndView getPostIndividual(
+        //@RequestParam(defaultValue = "1", name ="id", required = false) 
+        @PathVariable(required =  true, name = "post") int id){
 
         ModelAndView modelAndView = new ModelAndView(Pages.POST);
 
